@@ -5,13 +5,15 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let precedence = HashMap::from([('*', 1), ('+', 2)]);
 
-    let mut sum = 0;
-    for input in inputs.lines() {
-        let postfix = to_postfix(input, &precedence)?;
-        let result = eval_postfix(postfix);
-        sum += result;
-    }
-    println!("The sum is: {sum}");
+    let sum = inputs
+        .lines()
+        .try_fold(0u64, |sum, input| -> Result<u64, String> {
+            let postfix = to_postfix(input, &precedence)?;
+            let result = eval_postfix(postfix);
+            Ok(sum + result)
+        })?;
+
+    println!("The sum is: {sum:?}");
     Ok(())
 }
 
