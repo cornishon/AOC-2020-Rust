@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 /target
 Cargo.lock
 Cargo.toml
 hash_map_impl
 index_map_impl
 profile.json
+||||||| (empty tree)
+=======
+/target
+hash_map_impl
+index_map_impl
+profile.json
+>>>>>>> 3bc04e8 (initial commit)
